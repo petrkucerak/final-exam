@@ -95,3 +95,73 @@ Jinak se této grafové reprezetnaci také říká *list of neighborurs* neboli 
 | Remove edge   | $\Omicron(1)$    | $\Omicron(1)$    | $\Omicron(V \cdot E)$ | $\Omicron(V)$   |
 
 
+## Minimum Spanning Tree (Minimální kostra grafu)
+
+**Minimum Spanning Tree** neboli *Minimální kostra grafu* $G=(V,E)$ **je množina vrcholů $V$ a hran $E'$ z grafu $G$, které zajistí, že je každý vrchol grafu $G$ spojen se všemi ostatními vrcholy a to s minimální cenou. Přičemž minimální cena je definovaná jakou součet vah hran grafu, které jsou použity, tedy součet hran z množiny $c(E')$ musí být minimální.
+
+### Algoritmy
+
+#### Jarník-Prim
+
+Algoritmus funguje podobně jako Dijkstra, jen je terminován, jakmile navštíví všechny vrcholy. Funguje tak, že:
+
+1. Začne na jakémkoliv vrcholu. Ten označí jako `visited`  a přidá do prioritního seznamu všechny hrany, které z přidaného vrcholu vedou.
+2. Přejde do vrcholu, který není ve stavu `visisted` a opakuje krok č. 1.
+3. Končí jakmile jsou přidány všechny vrcholy grafu.
+
+Časová složitost záleží na využitých strukturách. Obecně je ale časová složitost $\Omicron(n\cdot m)$, kde $n=|V(G)|$ a $m=|E(G)|$.
+
+<div class="col-2">
+<div>
+
+#### Borůvka
+
+**💡 Zajímavost:** Jedná se o nejstarší algoritmus pro MST.
+
+Funguje tak, že postupně spojuje komponenty souvislosti. Na začátku je komponenta sám každý vrchol. V každé fázi vybírá vždy nejlevnější hranu, které směřuje do jiné komponenty souvislosti.
+
+</div>
+<div>
+
+![](https://upload.wikimedia.org/wikipedia/commons/2/2e/Boruvka%27s_algorithm_%28Sollin%27s_algorithm%29_Anim.gif)
+
+</div>
+</div>
+
+<div class="col-2">
+<div>
+
+#### Kruskal
+
+Seřadí hrany od nejmenší po nejvyšší. Následně hranu přidá, pokud jejím přidáním nevznikne cyklický graf.
+
+</div>
+<div>
+
+![](https://upload.wikimedia.org/wikipedia/commons/b/bb/KruskalDemo.gif)
+
+</div>
+</div>
+
+<div class="col-2">
+<div>
+
+## Strongly Connected Components
+
+Říkáme, že je komponenta silně souvislá, pokud platí, že se mohu dostat z každého vrcholu do jakéhokoliv jiného.
+
+</div>
+<div>
+
+![alt text](assets/PAL_04.png)
+
+</div>
+</div>
+
+### Kosarju-Shariri
+
+K nalezení takovýchto komponent, se využívá tohoto algoritmu.
+
+## Graph Isomorphism
+
+Otázka zní, jak poznat, že jsou grafy stejné? Řešením je vygenerování certifikátů pro oba dva grafy. Pokud se shodují, pak jsou grafy stejné, pokud ne, tak nejsou isomorfní.
