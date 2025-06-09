@@ -4,7 +4,7 @@
 - computer: PAP, ESW
 - embedded & hardware: ISC, AVS, KRP
 
-## PAL
+## PAL - [poznámky](/PAL.md)
 
 - **Formality:** Notation of the asymptotic complexity of an algorithm. Basic notation of graph problems - degree, path, circuit, cycle. Graph representations by adjacency, distance, Laplacian, and incidence matrices. Adjacency list representation.
     
